@@ -38,8 +38,6 @@ const StarRating = (props) => {
               style={{
                 marginRight:10,
                 cursor:"pointer",
-                marginTop:10,
-                marginBottom:10
               }}
               color={(hoverVal || currentVal) > index ? colors.orange : colors.grey}
               onClick={()=>handleClick(index+1)}
@@ -57,8 +55,7 @@ const styles={
   container: {
     display:"flex",
     flexDirection:"column",
-    alignItem: "right",
-    marginLeft:"40px"
+    marginLeft:"25px"
   }
 }
 

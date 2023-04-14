@@ -1,4 +1,5 @@
 import logo from './logo.svg';
+<<<<<<< HEAD
 import AdminPage from './components/adminPage';
 import './App.css';
 import UpdateUser from './components/updateUser';
@@ -16,6 +17,17 @@ function App() {
                 </Routes> 
      </>
      {/* <UpdateUser/> */}
+=======
+import FeedbackPage from './components/feedbackQuestions/feedbackPage';
+import './App.css';
+import EmployeeList from './components/AdminPages/EmployeeList';
+
+function App() {
+  return (
+    <div className="App">
+      <FeedbackPage></FeedbackPage>
+      {/* <EmployeeList></EmployeeList> */}
+>>>>>>> 1dc14c80bfa890a4090da1b24f4de7a849f61013
     </div>
   );
 }
