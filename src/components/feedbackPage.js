@@ -38,6 +38,7 @@ const FeedbackPage = () => {
         })
         console.log(obj);
     }
+    
     return (<>
 
         <div>
