@@ -1,27 +1,51 @@
 import React, { useEffect, useState } from "react";
 import StarRating from "./starRating";
 import axios from "axios";
-const FeedbackPage = () => {
-const[data,setData]=useState([]);
-        useEffect(() => {
-            axios.get("http://localhost:4545/api/v1/questions/valid")
-          .then((response) => setData(response.data));
-          console.log(data)
-          }, []);
-   
-    return (  
-        <div>
+import './feedbackPage.css';
 
-            {data.map((blog)=>(
-            <div key={blog.quesId}>
-            <h2>{blog.questions}</h2>
-            <StarRating/>
-            <label>Comment</label><br></br>
-            <textarea type="text" placeholder="Enter your comment"></textarea>
-</div>
-         ))}
+const FeedbackPage = () => {
+    const [isOpenCon, setIsOpenCon] = useState(false);
+    const [data, setData] = useState([]);
+    useEffect(() => {
+        axios.get("http://localhost:4545/api/questions/checkValid")
+            .then((response) => setData(response.data));
+        console.log(data)
+    }, []);
+    const handleFeedBack = () => {
+        setIsOpenCon(true)
+    }
+    return (<>
+
+        <div>
+            <button onClick={handleFeedBack}>Give FeedBack</button>
+
         </div>
+        {isOpenCon && <div className='popupContainer' onClick={()=>setIsOpenCon(false)}>
+            <div className='popup-boxd'onClick={(e) => {e.stopPropagation()}}>
+                <div className="ques">
+                    {data.map((blog) =>
+                        <div key={blog.quesId}>
+                            <p>{blog.questions}</p>
+                            <StarRating></StarRating>
+                        </div>)
+                    }
+                </div>
+                <div className="cmntBox">
+                    <label>Comment</label>
+                    <textarea placeholder="Provide the Feedback"></textarea>
+                    <button>Submit Feedback</button>
+                </div>
+
+            </div>
+            </div>
+        }
+
+
+
+
+
+        </>
     );
 }
- 
-export default FeedbackPage;
+
+        export default FeedbackPage;
