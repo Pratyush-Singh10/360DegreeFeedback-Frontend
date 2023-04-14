@@ -34,6 +34,7 @@ const UpdateUser = () => {
                 <label>Role</label>
                 {/* <input value={role} onChange={(e)=>setRole(e.target.value)}></input> */}
                 <select value={role} onChange={(e)=>setRole(e.target.value)}>
+                <option value="" select hidden>Select</option>
                 <option value={"Admin"} >Admin</option>
                 <option value={"User"}>User</option>
                 {console.log(role)}

@@ -6,7 +6,7 @@ const colors = {
   grey: "#a9a9a9"
 }
 
-const StarRating = (props) => {
+const StarRating = ({setquesid,quesidArr,setvalues}) => {
 
   const stars =Array(5).fill(0);
   const [currentVal, setCurrentVal]=React.useState(0);
@@ -14,9 +14,7 @@ const StarRating = (props) => {
 
   const handleClick = value =>{
     setCurrentVal(value);
-    let temp=props.starArr;
-    console.log(temp);
-    
+    console.log(value);
   };
 
   const handleMouseOver = value =>{
